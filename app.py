@@ -7,6 +7,10 @@ from skfuzzy import control as ctrl
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def home():
+    return "Smart Fuzzy Irrigation System API is running!"
+
 # ─────────────────────────────────────────────
 # Build Fuzzy System (runs once at startup)
 # ─────────────────────────────────────────────
