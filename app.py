@@ -8,9 +8,9 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
+@app.route("/api")
 def home():
-    return "Smart Fuzzy Irrigation System API is running!"
+    return jsonify({"message": "Smart Fuzzy Irrigation API is running!"})
 
 # ─────────────────────────────────────────────
 # Build Fuzzy System (runs once at startup)

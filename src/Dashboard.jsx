@@ -5,7 +5,7 @@ import {
   AreaChart, Area,
 } from "recharts";
 
-const API = "https://smart-fuzzy-irrigation-system-1.onrender.com/";
+const API = "https://smart-fuzzy-irrigation-system-1.onrender.com";
 
 
 const C = {
