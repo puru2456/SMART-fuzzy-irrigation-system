@@ -5,7 +5,7 @@ import {
   AreaChart, Area,
 } from "recharts";
 
-const API = "http://localhost:5000/api";
+const API = "https://smart-fuzzy-irrigation-system-1.onrender.com";
 
 const C = {
   soil:  "#1D9E75",
