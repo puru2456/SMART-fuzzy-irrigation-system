@@ -7,17 +7,6 @@ import {
 
 const API = "https://smart-fuzzy-irrigation-system-1.onrender.com";
 
-useEffect(() => {
-  fetch("https://smart-fuzzy-irrigation-system-1.onrender.com")
-    .then(res => res.json())
-    .then(data => {
-      console.log("Backend response:", data);
-    })
-    .catch(err => {
-      console.log("Backend error:", err);
-    });
-}, []);
-
 const C = {
   soil:  "#1D9E75",
   temp:  "#D85A30",
