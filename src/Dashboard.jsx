@@ -8,7 +8,7 @@ import {
 const API = "https://smart-fuzzy-irrigation-system-1.onrender.com";
 
 useEffect(() => {
-  fetch('${API}/')
+  fetch("https://smart-fuzzy-irrigation-system-1.onrender.com")
     .then(res => res.json())
     .then(data => {
       console.log("Backend response:", data);
