@@ -327,7 +327,7 @@ export default function Dashboard() {
   const predict = useCallback(async (s, t, h) => {
     setLoading(true); setError(null);
     try {
-      const res  = await fetch(`${API}/predict`, {
+      const res  = await fetch(`${API}/api/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ soil: s, temp: t, hum: h }),
@@ -345,9 +345,9 @@ export default function Dashboard() {
   }, [soil, temp, hum, predict]);
 
   useEffect(() => {
-    fetch(`${API}/history`).then(r => r.json()).then(d => setHistoryData(d.readings)).catch(() => {});
-    fetch(`${API}/scan?temp=28&hum=60&steps=25`).then(r => r.json()).then(d => setScanData(d.data)).catch(() => {});
-    fetch(`${API}/heatmap?hum=60`).then(r => r.json()).then(d => {
+    fetch(`${API}/api/history`).then(r => r.json()).then(d => setHistoryData(d.readings)).catch(() => {});
+    fetch(`${API}/api/scan?temp=28&hum=60&steps=25`).then(r => r.json()).then(d => setScanData(d.data)).catch(() => {});
+    fetch(`${API}/api/heatmap?hum=60`).then(r => r.json()).then(d => {
       const flat = d.soil_labels.map((sl, si) => {
         const entry = { name: sl };
         d.temp_labels.forEach((tl) => { entry[tl] = d.matrix[si][d.temp_labels.indexOf(tl)].duration; });
@@ -359,7 +359,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const t = setTimeout(() => {
-      fetch(`${API}/scan?temp=${temp}&hum=${hum}&steps=25`)
+      fetch(`${API}/api/scan?temp=${temp}&hum=${hum}&steps=25`)
         .then(r => r.json()).then(d => setScanData(d.data)).catch(() => {});
     }, 400);
     return () => clearTimeout(t);
